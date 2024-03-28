@@ -34,11 +34,11 @@ class UserController {
       const number = req.body.number;
       console.log(OTP)
 
-      await twilioClient.messages.create({
-        from: fromNumber, 
-        body: `Your OTP is : ${OTP}`,
-        to:'+91' + number,     
-      }).then(message => console.log(message.sid))
+      // await twilioClient.messages.create({
+      //   from: fromNumber, 
+      //   body: `Your OTP is : ${OTP}`,
+      //   to:'+91' + number,     
+      // }).then(message => console.log(message.sid))
 
       const otp = new OtpModal ({number:number , otp: OTP})
       console.log(otp)
