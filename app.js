@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = 3692
+const port = 4000
 
 const web = require('./routes/web')
 const dotenv = require('dotenv')
