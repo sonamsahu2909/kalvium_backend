@@ -4,7 +4,7 @@ class RegisterController {
 
 static createRegister = async (req, res) => {
   try {
-      // console.log(req.body)
+      console.log(req.body)
     const {
       firstname,
       lastname,
