@@ -1,6 +1,6 @@
 const express = require('express')
 const app = express()
-const port = 5000
+const port = 3692
 const web = require('./routes/web')
 const dotenv = require('dotenv')
 const connectdb = require('./db/dbcon')
@@ -9,9 +9,6 @@ const fileUpload = require("express-fileupload");
 const cookieParser = require('cookie-parser')
 const bodyparser = require('body-parser')
 
-// const corsOptions = {
-//   origin: 'http://localhost:3000'
-// };
 
 app.use(cors())
 app.use(express.json())

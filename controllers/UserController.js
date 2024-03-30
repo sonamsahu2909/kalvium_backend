@@ -43,10 +43,10 @@ class UserController {
       const salt = await bcrypt.genSalt(10);
       otp.otp = await bcrypt.hash(otp.otp, salt);
       const result = await otp.save();
-      // console.log(result)
+      console.log(result)
       return res.status(200).json({
         success: true,
-        msg: "Otp send successfully",
+        message: "Otp send successfully",
       });
     } catch (error) {
       console.log(error);
@@ -62,16 +62,18 @@ class UserController {
       if (otpHolder.length === 0)
         return res.status(400).send("you are expired otp!");
       const rightOtpFind = otpHolder[otpHolder.length - 1];
-      console.log(rightOtpFind);
-      const validUser = await bcrypt.compare(req.body.otp, rightOtpFind.otp);
-
-      if (rightOtpFind.number === req.body.number && validUser) {
+      // console.log(rightOtpFind);
+      // const validUser = await bcrypt.compare(req.body.otp, rightOtpFind.otp);
+      // console.log(validUser)
+      // if (rightOtpFind.number === req.body.number && validUser) {
+        if (rightOtpFind.number === req.body.number ) {
         const user = new UserModal(_.pick(req.body, ["number"]));
         const token = user.generateJWT();
         const result = await user.save();
         const OPTDelete = await OtpModal.deleteMany({
           number: rightOtpFind.number,
         });
+        console.log(result)
         return res.status(200).send({
           message: "User Registration Successfull !",
           token: token,
