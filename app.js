@@ -1,10 +1,7 @@
 const express = require('express')
 const app = express()
-<<<<<<< HEAD
 const port = 3692
-=======
-const port = 5000
->>>>>>> cb217422414bccd5985195714ba5c4fbc80948f2
+
 const web = require('./routes/web')
 const dotenv = require('dotenv')
 const connectdb = require('./db/dbcon')
@@ -13,12 +10,6 @@ const fileUpload = require("express-fileupload");
 const cookieParser = require('cookie-parser')
 const bodyparser = require('body-parser')
 
-<<<<<<< HEAD
-=======
-// const corsOptions = {
-//   origin: 'http://localhost:3000'
-// };
->>>>>>> cb217422414bccd5985195714ba5c4fbc80948f2
 
 app.use(cors())
 app.use(express.json())
